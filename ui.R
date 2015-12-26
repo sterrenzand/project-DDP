@@ -66,7 +66,7 @@ shinyUI(pageWithSidebar(
                                 The plot for the number of refugees that arrived in this country is 
                                 displayed in the graph on the tab named Plot. On the x axis we have 
                                 the date and on the y axis the number of refugees. If you hover your 
-                                curser over the line in the plot detailed data is displayed."),
+                                cursor over the line in the plot detailed data is displayed."),
                                 br(),
                                 p("To calculate the total of refugees that have arrived in the selected 
                                 country: Please select a begin date and end date via the calender input 

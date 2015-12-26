@@ -34,6 +34,7 @@ shinyServer(
                                  labels = list(
                                  format = '{value:%Y-%m-%d}',
                                  rotation = -45))
+                         h1$yAxis(min= 0 ) # this sets minimum values of y to 0
                          h1$addParams(height = 400, width = 600)
                         h1
                         }) 
