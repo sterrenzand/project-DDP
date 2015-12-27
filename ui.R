@@ -31,7 +31,7 @@ shinyUI(pageWithSidebar(
                    Raw Data tab. In the Documentation tab you find infomation on the data and how the 
                    app works. The source code and all other files can be found 
                    ", tags$a(href="https://github.com/sterrenzand/project-DDP", "here on github."), 
-                  "Please also have a look at the", tags$a(href="https://sterrenzand.github.io/project-DDP/index.html#3",  
+                  "Please also have a look at the", tags$a(href="https://sterrenzand.github.io/project-DDP/index.html#1",  
                   "slidify presentation")," for this project.")
         ),
         mainPanel(
@@ -79,7 +79,7 @@ shinyUI(pageWithSidebar(
                                 ", tags$a(href="https://github.com/sterrenzand/project-DDP", "here 
                                 on github."), 
                                 "Please also have a look at the", 
-                                tags$a(href="https://sterrenzand.github.io/project-DDP/index.html#3",  
+                                tags$a(href="https://sterrenzand.github.io/project-DDP/index.html#1",  
                                 "slidify presentation")," for this project.")
                                 
                                 )
