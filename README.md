@@ -7,4 +7,4 @@ The following shiny application and slidify presentation were developed as part 
 [https://sterrenzand.shinyapps.io/project](https://sterrenzand.shinyapps.io/project)
 
 *Part 2: Reproducible Pitch Presentation 
-[https://sterrenzand.github.io/project-DDP/index.html](https://sterrenzand.shinyapps.io/project)
+[https://sterrenzand.github.io/project-DDP/index.html](https://sterrenzand.github.io/project-DDP/index.html)
