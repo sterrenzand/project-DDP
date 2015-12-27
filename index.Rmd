@@ -1,27 +1,100 @@
 ---
-title       : Refugee project
+title       : Refugees along the Balkan Route
 subtitle    : 
-author      : me
+author      : C. Smeyers
 job         : 
-#assets      : .\assets
-logo        : circle.png
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
+widgets     : []            # {mathjax, quiz, bootstrap} 
+ext_widgets : {rCharts: ["libraries/highcharts"]}
+       
 mode        : selfcontained # {standalone, draft}
+logo        : zen.jpg
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete
+## Introduction
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+You may have seen it in the news that there is a refugee crisis taking place in Europe. 
+Hundreds of thousends of people are fleeing their home countries and traveling along the so-called Balkans route as refugees. This app has been created to explore data provided by the UNHCR, the United Nations Refugee Agency, on the number of refugees arriving at the borders of European counties. This allows you to get a better picture of the magnitude of this crisis and also to see how the numbers are in various countries along the Balkans Route.
+
+                                
+[View the application](https://sterrenzand.shinyapps.io/project)
 
 --- .class #id 
 
-## Slide 2
+## What the app does
+
+
+* visualizes refugee data from October 1, 2015 to December 20, 2015
+* allows you to pick a country from the list (Greece (Mainland or Islands), Macedonia, Serbia, Croatia, Hungary, Slovenia, Austria)
+* displays a graphical representation of the number of refugees that arrived in the selected country between Oct 1 - Dec 20
+* gives details on the datapoints when hovering over the graph
+* allows you to choose a timespan (begin and end date)
+* calculates and displays the sum of refugees arrived in the selected country during the chosen timespan 
+* allows you to inspect the raw data
+
+
+
+                                                                                    
+
+--- .class #id 
+
+
+## This is what the graph looks like for Austria
+
+
+```{r, echo=FALSE, results="asis"}
+require(rCharts)
+dt <- read.csv('Arrivals.csv', header = TRUE, na.strings = "N/A")
+colnames(dt)<-c("date", "Greek.Islands","Greek.Mainland","Macedonia", "Serbia", "Croatia", "Hungary","Slovenia","Austria")
+
+for (i in 2:9) {
+        dt[,i]<- as.numeric(gsub(",", "", dt[,i])) #eliminate grouping commas
+        }
+dt[,1]<-as.Date(dt[,1],format="%m/%d/%Y") #format the date column
+
+dt$dat<-as.numeric(as.POSIXct(dt$date))*1000 #converts date column into format that displays nicely
+h1 <- hPlot(dt$Austria ~ dat,
+                                 x="dat",
+                                 y="Austria",
+                                data = dt, 
+                                type = "line")
+                         h1$xAxis(type = 'datetime',
+                                 labels = list(
+                                 format = '{value:%Y-%m-%d}',
+                                 rotation = -45))
+                         h1$yAxis(min= 0, ylab='Austria') # sets minimum values of y to 0
+                        
+                         h1$addParams(height = 350, width = 550)
+                        h1$print('chart1')
+```
+
+From October 1 - Dezember 20, 2015 the total of refugees that have arrived at the Austrian border was:
+
+```{r, echo = FALSE}
+                        
+  sum(dt$Austria)
+                        
+```
+
+--- .class #id 
+ 
+
+## Recources
+ * you can find the shiny app at: 
+ 
+ https://sterrenzand.shinyapps.io/project
+
+ * the source code and all other files are here on github:
+ 
+ https://github.com/sterrenzand/project-DDP
+ 
+ * the original data was found on this UNHCR website:
+ 
+ http://data.unhcr.org/mediterranean/country.php?id=502
+
 
 
 
