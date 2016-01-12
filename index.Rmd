@@ -2,9 +2,13 @@
 title       : Refugees along the Balkan Route
 subtitle    : 
 <<<<<<< HEAD
+<<<<<<< HEAD
 author      : C. Smeyers
 =======
 author      : 
+>>>>>>> refs/remotes/origin/master
+=======
+author      : sterrenzand stats 
 >>>>>>> refs/remotes/origin/master
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
